@@ -21,10 +21,10 @@ if [ "$(npm list stylelint-config-wordpress | grep empty)" ]; then
     npm install stylelint-config-wordpress
 fi
 
-if [ ! -f .stylelintrc ] || [ ! -f .stylelintrc.json ] || [ ! -f .stylelintrc.yaml ] || [ ! -f .stylelintrc.yml ] || [ ! -f .stylelintrc.js ]
+if [ ! -f .stylelintrc ] && [ ! -f .stylelintrc.json ] && [ ! -f .stylelintrc.yaml ] && [ ! -f .stylelintrc.yml ] && [ ! -f .stylelintrc.js ]
 then
 	echo 'Creating stylelint config file'
-	cat << STYLELINT > ./.stylelintrc
+	cat << STYLELINT > ./.stylelintrc.json
 {
   "extends": "stylelint-config-wordpress/scss"
 }

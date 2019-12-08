@@ -21,10 +21,10 @@ if [ "$(npm list @wordpress/eslint-plugin | grep empty)" ]; then
     npm install @wordpress/eslint-plugin
 fi
 
-if [ ! -f .eslintrc ] || [ ! -f .eslintrc.json ] || [ ! -f .eslintrc.yaml ] || [ ! -f .eslintrc.yml ] || [ ! -f .eslintrc.js ]
+if [ ! -f .eslintrc ] && [ ! -f .eslintrc.json ] && [ ! -f .eslintrc.yaml ] && [ ! -f .eslintrc.yml ] && [ ! -f .eslintrc.js ]
 then
 	echo 'Creating ESLint config file'
-	cat << ESLINT > ./.eslintrc.js
+	cat << ESLINT > ./.eslintrc.json
 {
   "extends": [
     "plugin:@wordpress/eslint-plugin/recommended"

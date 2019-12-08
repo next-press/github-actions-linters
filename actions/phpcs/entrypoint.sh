@@ -2,7 +2,10 @@
 
 set -eo
 
-cd $GITHUB_WORKSPACE
+cd "$GITHUB_WORKSPACE"
+
+echo $PWD
+ls
 
 if [ ! -f composer.json ]; then
 	echo 'Setting up a Composer file'

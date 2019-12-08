@@ -4,6 +4,11 @@ set -eo
 
 cd "$GITHUB_WORKSPACE"
 
+if [ ! -f package.json ]; then
+	echo 'Creating package.json'
+    npm init -y
+fi
+
 npm install
 
 if [ "$(npm list stylelint | grep empty)" ]; then
@@ -16,7 +21,7 @@ if [ "$(npm list stylelint-config-wordpress | grep empty)" ]; then
     npm install stylelint-config-wordpress
 fi
 
-if [ -f .stylelintrc ] || [ -f .stylelintrc.json ] || [ -f .stylelintrc.yaml ] || [ -f .stylelintrc.yml ] || [ -f .stylelintrc.js ]
+if [ ! -f .stylelintrc ] || [ ! -f .stylelintrc.json ] || [ ! -f .stylelintrc.yaml ] || [ ! -f .stylelintrc.yml ] || [ ! -f .stylelintrc.js ]
 then
 	echo 'Creating stylelint config file'
 	cat << STYLELINT > ./.stylelintrc

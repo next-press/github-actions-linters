@@ -19,7 +19,7 @@ fi
 if [ -f .eslintrc ] || [ -f .eslintrc.json ] || [ -f .eslintrc.yaml ] || [ -f .eslintrc.yml ] || [ -f .eslintrc.js ]
 then
 	echo 'Creating ESLint config file'
-	cat << ESLINT > ./.stylelintrc
+	cat << ESLINT > ./.eslintrc.js
 {
   "extends": [
     "plugin:@wordpress/eslint-plugin/recommended"

@@ -2,7 +2,7 @@
 
 set -eo
 
-cd $GITHUB_WORKSPACE
+cd "$GITHUB_WORKSPACE"
 
 npm install
 

@@ -4,9 +4,6 @@ set -eo
 
 cd "$GITHUB_WORKSPACE"
 
-echo $PWD
-ls
-
 if [ ! -f composer.json ]; then
 	echo 'Setting up a Composer file'
     composer init
@@ -34,4 +31,4 @@ then
 fi
 
 echo 'Linting PHP files'
-./vendor/bin/phpcs $STANDARD -s -p -n $*
+./vendor/bin/phpcs $STANDARD -s -p -n .

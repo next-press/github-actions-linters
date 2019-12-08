@@ -2,6 +2,8 @@
 
 set -eo
 
+cd $GITHUB_WORKSPACE
+
 if [ ! -f composer.json ]; then
 	echo 'Setting up a Composer file'
     composer init

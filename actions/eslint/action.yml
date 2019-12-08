@@ -1,0 +1,9 @@
+name: 'ESLint'
+description: 'Lint JavaScript Files'
+author: 'NextPress'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+branding:
+  icon: 'upload-cloud'
+  color: 'blue'

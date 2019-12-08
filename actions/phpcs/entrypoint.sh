@@ -24,7 +24,7 @@ else
     composer require dealerdirect/phpcodesniffer-composer-installer wp-coding-standards/wpcs
 fi
 
-STANDARD=' --standard=WordPress'
+STANDARD=' --standard=WordPress --extensions=php'
 if [ -f .phpcs.xml ] || [ -f phpcs.xml ] || [ -f .phpcs.xml.dist ] || [ -f phpcs.xml.dist ]
 then
 	STANDARD=''

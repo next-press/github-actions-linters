@@ -1,12 +1,26 @@
 FROM composer:latest
 
-# Install some PHP extensions
-RUN apt-get update \
- && apt-get install -y -q --no-install-recommends \
-    php-sockets \
-    php-intl \
- && apt-get clean \
- && rm -r /var/lib/apt/lists/*
+# Install sockets
+RUN docker-php-ext-install sockets
+
+# Install intl
+RUN set -xe \
+    && apk add --update \
+        icu \
+    && apk add --no-cache --virtual .php-deps \
+        make \
+    && apk add --no-cache --virtual .build-deps \
+        $PHPIZE_DEPS \
+        zlib-dev \
+        icu-dev \
+        g++ \
+    && docker-php-ext-configure intl \
+    && docker-php-ext-install \
+        intl \
+    && docker-php-ext-enable intl \
+    && { find /usr/local/lib -type f -print0 | xargs -0r strip --strip-all -p 2>/dev/null || true; } \
+    && apk del .build-deps \
+    && rm -rf /tmp/* /usr/local/lib/php/doc/* /var/cache/apk/*
 
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh

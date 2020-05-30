@@ -10,7 +10,7 @@ if [ ! -f composer.json ]; then
 fi
 
 echo 'Installing Composer packages'
-composer install
+composer install --no-scripts
 
 phpcs_package_exist() {
     composer show | grep squizlabs/php_codesniffer >/dev/null

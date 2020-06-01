@@ -27,6 +27,9 @@ fi
 echo 'Installing NextPress Coding Standards'
 composer require nextpress/nextpresscs --no-scripts
 
+echo 'Installing Coding Standards'
+composer run-script install-codestandards
+
 STANDARD=' --standard=WordPress --ignore=*/vendor/* --extensions=php'
 if [ -f .phpcs.xml ] || [ -f phpcs.xml ] || [ -f .phpcs.xml.dist ] || [ -f phpcs.xml.dist ]
 then

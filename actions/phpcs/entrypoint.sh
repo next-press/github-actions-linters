@@ -24,7 +24,8 @@ else
     composer require dealerdirect/phpcodesniffer-composer-installer wp-coding-standards/wpcs
 fi
 
-composer require nextpress/nextpresscs
+echo 'Installing NextPress Coding Standards'
+composer require nextpress/nextpresscs --no-scripts
 
 STANDARD=' --standard=WordPress --ignore=*/vendor/* --extensions=php'
 if [ -f .phpcs.xml ] || [ -f phpcs.xml ] || [ -f .phpcs.xml.dist ] || [ -f phpcs.xml.dist ]

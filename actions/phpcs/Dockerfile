@@ -3,6 +3,8 @@ FROM composer:latest
 # Install sockets
 RUN docker-php-ext-install sockets
 
+RUN docker-php-ext-install gd
+
 # Install intl
 RUN set -xe \
     && apk add --update \

@@ -10,7 +10,7 @@ if [ ! -f composer.json ]; then
 fi
 
 echo 'Installing PHP GD'
-sudo apt-get install php7.4-gd
+apt-get install php7.4-gd
 
 echo 'Installing Composer packages'
 composer install --no-scripts

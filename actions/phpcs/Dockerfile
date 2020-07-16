@@ -3,8 +3,6 @@ FROM composer:latest
 # Install sockets
 RUN docker-php-ext-install sockets
 
-RUN docker-php-ext-install gd
-
 # Install intl
 RUN set -xe \
     && apk add --update \
@@ -20,6 +18,7 @@ RUN set -xe \
     && docker-php-ext-install \
         intl \
     && docker-php-ext-enable intl \
+    && apk add --no-cache libpng libpng-dev && docker-php-ext-install gd && apk del libpng-dev \
     && { find /usr/local/lib -type f -print0 | xargs -0r strip --strip-all -p 2>/dev/null || true; } \
     && apk del .build-deps \
     && rm -rf /tmp/* /usr/local/lib/php/doc/* /var/cache/apk/*

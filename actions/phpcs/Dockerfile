@@ -1,4 +1,4 @@
-FROM composer:latest
+FROM composer:1.10.16
 
 # Install sockets
 RUN docker-php-ext-install sockets

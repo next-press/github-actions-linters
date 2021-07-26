@@ -47,4 +47,4 @@ ESLINT
 fi
 
 echo 'Running ESLint'
-npx eslint **/*.js
+npx eslint ./assets/**/*.js

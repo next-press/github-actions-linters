@@ -22,6 +22,9 @@ if [ "$(npm list @wordpress/eslint-plugin | grep empty)" ]; then
 fi
 
 if [ ! -f .eslintrc ] && [ ! -f .eslintrc.json ] && [ ! -f .eslintrc.yaml ] && [ ! -f .eslintrc.yml ] && [ ! -f .eslintrc.js ]
+	echo 'Using existing eslint.rc'
+	cat ./.eslintrc
+	cat ./.eslintignore
 then
 	echo 'Creating ESLint config file'
 	cat << ESLINT > ./.eslintrc.json

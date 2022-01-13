@@ -10,7 +10,10 @@ RUN composer --version
 RUN php -m | grep "intl" &> /dev/null && echo "PHP Intl is installed" || echo "PHP Intl is NOT installed"
 
 # # Install sockets
-# RUN docker-php-ext-install sockets
+RUN docker-php-ext-install sockets
+
+# Check for Sockets
+RUN php -m | grep "sockets" &> /dev/null && echo "PHP sockets is installed" || echo "PHP sockets is NOT installed"
 
 # # Install intl
 # RUN set -xe \

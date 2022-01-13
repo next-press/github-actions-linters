@@ -12,7 +12,7 @@ cd "$GITHUB_WORKSPACE"
 
 if [ ! -f composer.json ]; then
     echo 'Setting up a Composer file'
-    composer init --stability dev --no-interaction
+    composer init
 fi
 
 echo 'Installing Composer packages'

@@ -3,6 +3,9 @@ FROM composer:1.10.16
 # Install sockets
 RUN docker-php-ext-install sockets
 
+# PHP Version
+RUN php -v
+
 # Install intl
 RUN set -xe \
     && apk add --update \

@@ -11,8 +11,8 @@ mkdir node_modules
 cd node_modules
 
 if [ ! -f composer.json ]; then
-	echo 'Setting up a Composer file'
-    composer init
+    echo 'Setting up a Composer file'
+    composer init --stability dev --no-interaction
 fi
 
 echo 'Installing Composer packages'

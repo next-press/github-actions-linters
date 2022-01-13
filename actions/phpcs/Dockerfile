@@ -1,4 +1,4 @@
-FROM composer:latest
+FROM jhonoryza/php:ubuntu-7.4-composer-2
 
 # Install sockets
 RUN docker-php-ext-install sockets
